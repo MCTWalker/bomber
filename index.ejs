@@ -87,14 +87,14 @@
           go();
         } else if (e.keyCode == '68') {
           //d key
-          window.speed = 20;
+          window.speed = 100;
           addSpeed(0);
           go();
         }
         else if (e.keyCode == '37') {
           //left arrow
           if (window.direction === "left") {
-            leftTimerRef = setInterval(function(){ myTimer() }, 1000);
+            //leftTimerRef = setInterval(function(){ addSpeed(10) }, 1000);
           } else {
             stop();
           }
@@ -106,6 +106,17 @@
           } else {
             go();
           }
+        } else if (e.keyCode == '87') {
+          //w key
+          window.speed = 255;
+          addSpeed(0);
+          go();
+          setTimeout(function() {
+            fire();
+            setTimeout(function() {
+              //stop();
+            }, 2000);
+          }, 2850);
         }
       }
 
@@ -113,5 +124,9 @@
   </head>
   <body>
     <label>Speed is: </label><span id="speed"></span>
+    <p>a - turbo</p>
+    <p>d - medium speed</p>
+    <p>right arrow - break</p>
+    <p>space bar - fire</p>
   </body>
 </html>
